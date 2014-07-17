@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<h:head>
+		<title>Sample Page</title>
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"></link>
+		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	</h:head>
+
+	<h:body>
+
+		<h1>JSF 2.0 + PrimeFaces + Spring Example</h1>
+		
+		<h:form>
+			<p:dataTable id="companyDataTable"  var="company" value="#{tableBean.companyList}" styleClass="table">
+				<f:facet name="header">
+					Ajax Sorting
+				</f:facet>
+			
+				<p:column sortBy="#{company.getCompanyName()}" headerText="Company Name">
+					<h:outputText value="#{company.getCompanyName()}" />
+				</p:column>
+
+				<p:column sortBy="#{company.getCompanyCode()}" headerText="Company Code">
+					<h:outputText value="#{company.getCompanyCode()}" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+
+	</h:body>
+</html>
